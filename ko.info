@@ -1,0 +1,7 @@
+name = KO
+description = Drupal tools, utiliies and common object classes.
+core = 7.x
+version = 7.x-0.1
+package = Development
+
+dependencies[] = xautoload
