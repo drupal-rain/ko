@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file Utility related to Drupal module system.
+ */
+
 namespace Drupal\ko\Module;
 
 class Module {
