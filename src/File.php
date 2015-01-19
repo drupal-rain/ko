@@ -121,10 +121,25 @@ class File {
     $file->filemime = file_get_mimetype($file->uri);
     $file->uid = 1;
     $file->timestamp = REQUEST_TIME;
-    $file->filesize = filesize($file->uri);
+    $file->filesize = @filesize($file->uri);
     $file->status = 0;
 
     return $file;
+  }
+
+  /**
+   * Prepare a #options array.
+   *
+   * @doc http://drupal7.api/api/drupal/includes%21file.inc/function/file_get_stream_wrappers/7.x
+   *
+   * @param $filter STREAM_WRAPPERS_ALL | STREAM_WRAPPERS_WRITE_VISIBLE | and many more
+   */
+  public static function schemeOptions($filter = STREAM_WRAPPERS_WRITE_VISIBLE) {
+    $scheme_options = array();
+    foreach (file_get_stream_wrappers($filter) as $scheme => $stream_wrapper) {
+      $scheme_options[$scheme] = $stream_wrapper['name'];
+    }
+    return $scheme_options;
   }
 
 }
