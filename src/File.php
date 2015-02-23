@@ -4,9 +4,7 @@
  * @file
  */
 
-
 namespace Drupal\ko;
-
 
 class File {
 
